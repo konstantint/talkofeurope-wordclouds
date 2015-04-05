@@ -9,7 +9,7 @@ The aim of the project was to extract words, *significantly overrepresented* in 
 or at particular timepoints. [Fisher exact test](http://en.wikipedia.org/wiki/Fisher%27s_exact_test) was used to measure overrepresentation.
 Results were visualized as wordclouds, served via an interactive web application.
 
-The application is hosted live (as of April 2015) on [http://europe.all.my](europe.all.my). This repository contains the source code
+The application is hosted live (as of April 2015) on [http://europe.all.my](http://europe.all.my). This repository contains the source code
 of the scripts used to compute the results and of the visualization web application.
 
 Project structure
