@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div style="width: 60%; margin: 10px auto 50px auto; text-align: justify">
+        <h2>Welcome</h2>
+        <p>
+            This website was created during the <a href="http://www.talkofeurope.eu/creativecamp2/call-for-participation/">Talk of Europe Creative Camp #2</a>
+            hackathon that took place 23-27 March 2015 in Amsterdam. The aim of the project was to extract and visualize
+            <i>statistically overrepresented words</i> from the English texts of the speeches made in the European Parliament.
+        </p>
+        <p>Before you move on to the actual content of the site, please make sure you understand what the visualizations here are meant to depict.
+            This is explained in the following text.</p>
+        <h3>What are those "overrepresented words"?</h3>
+        <p>
+            Consider an example of <i>country-specific words</i>, which is one of several visualizations available here.
+            In that case, we highlight the words which are <i>specific to</i> each country. In simple terms,
+            a word is considered to be "specific to a country" if it is <i>present in the speeches from that country a lot, when
+            compared to</i> speeches from other countries.
+        </p>
+        <p>
+            Another way to explain it, is to say that "specific words" are <i>indicative</i> of the country. E.g. the word "constituent",
+            that you can observe on the wordcloud for "Great Britain" is there because <i>whenever you hear that word in a speech,
+            chances are high the speech was made by a representative of Great Britain</i>. It does not mean that this word is particularly frequent, though.
+        </p>
+        <p>
+            Similarly, the visualization of <i>month- or year-specific words</i> shows topics that were mentioned in the discussions during a particular month
+            or year, yet comparably less frequently pronounced during other months or years.
+        </p>
+        <p>
+            Note that the visualizations do not aim to answer the question of <i>why</i> a particular word happens to be significant.
+            Although the most common explanation is that a particular topic is genuinely more interesting to the particular country than others (or
+            it was of high interest during a chosen time period), another reason may be that a particular word is simply part of a vocabulary
+            specific to a country representative, that happens to chat a lot. There may also be issues related to differences in language use by different countries.
+        </p>
+        <h3>How do I use the site?</h3>
+        <p>The use is straightforward - choose the type of visualization you are interested in in the menu above, then select the country / month / year of interest.
+        The checkbox "unique" in the per-country visualization will show you the words that not only are significant for a particular country, but are at the same time
+        <i>not</i> significant for any other country. Note that you can <i>click on the words</i> in the wordcloud &mdash; this will show you for each word, which other
+        countries (months / years) have it, and to what extent is it important there.</p>
+        <h3>Technical details</h3>
+        <p>For those interest in the technical details, the visualizations here were obtained as follows:
+        </p>
+        <ul>
+            <li>First we extracted all speeches from the Talk of Europe dataset that were labeled as "English". There were 254253 of them.</li>
+            <li>We applied automated language detection to those speeches, and selected a subset that was detected to be actually in English. This left 206018 texts.</li>
+            <li>We split each speech into words, lemmatized the words, removed stopwords.</li>
+            <li>We took five countries with the most speeches (GB,PT,FR,IT,DE), and collected the words
+                that were present in the speeches of <i>all</i> those five countries. By this we made sure we are considering generally interesting words and filtering
+                out language-specific words as much as possible. Note, that this somewhat "biases" the result towards the five largest countries, and
+                filters out all words that might be of interest to <i>only</i> one country. None the less, it provides us with a reasonably clean vocabulary of 15770 words.</li>
+            <li>To compute country-specific words for a given country, we first computed a contingency table for each word (i.e. how many times it is present in that country's speeches, how often
+                it is present in other countries' speeches, how often other words are present in this and other countries' speeches).</li>
+            <li>We then used a one-sided Fisher test to estimate an overrepresentation p-value for each word. We select as significant those words that pass
+                the 0.01 p-value threshold after Bonferroni correction.
+            </li>
+            <li>Finally, for each wordcloud we select just the top-100 words according to their p-value. We scale the words in proportion to their <i>log-odds score</i>.
+                Note that higher log-odds scores are not always correlated with lower p-values, yet the overall pictures just looks nicer that way.
+            </li>
+            <li>Month- and year-specific significant words are computed in a similar manner.</li>
+        </ul>
+        <p>
+            The complete implementation of the analysis as well as the full source code of the visualization application is openly available on Github.
+            Feel free to improve, extend and build upon. Many other interesting visualizations (e.g. words specific to political-parties, particular speakers,
+            countries over time, etc) can still be done here.
+        </p>
+        <h3>Contact</h3>
+        Feel free to contact the authors of this project: <a href="http://kt.era.ee/">Konstantin</a>, <a href="http://ikuz.eu/">Ilya</a>
+            or <a href="https://www.facebook.com/aleksandr.tkatsenko">Alexandr</a>.
+        </div>
+    </div>
+{% endblock %}

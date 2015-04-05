@@ -1,0 +1,3 @@
+recursive-include talkofeuropeweb/templates *.html
+recursive-include talkofeuropeweb/static *
+recursive-include data *.sqlite
