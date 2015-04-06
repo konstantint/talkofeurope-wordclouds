@@ -1,2 +1,0 @@
-recursive-include eio_userdb/templates *.html
-recursive-include eio_userdb/static *.js *.css *.png *.ico
