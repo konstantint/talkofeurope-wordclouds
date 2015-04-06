@@ -3,7 +3,7 @@ Talk of Europe: Significant words
 
 This repository contains the source code of the [project](http://europe.all.my) developed during the
 [Talk of Europe (ToE) Creative Camp #2](http://www.talkofeurope.eu/creativecamp2/call-for-participation/) (23-27 March 2015, Amsterdam)
-by Konstantin Tretyakov, Ilya Kuzovkin & Aleksandr Tkachenko.
+by Konstantin Tretyakov, Ilya Kuzovkin & Alexander Tkachenko.
 
 The aim of the project was to extract words, *significantly overrepresented* in the speeches of representatives of particular countries,
 or at particular timepoints. [Fisher exact test](http://en.wikipedia.org/wiki/Fisher%27s_exact_test) was used to measure overrepresentation.
