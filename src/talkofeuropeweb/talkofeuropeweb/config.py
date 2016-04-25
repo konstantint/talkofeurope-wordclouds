@@ -17,4 +17,4 @@ class Config(object):
     DEBUG_SERVER_PORT = 5000
 
     # Database connection
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///%s' % os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'resultsdb.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///%s' % os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'resultsdb.sqlite')

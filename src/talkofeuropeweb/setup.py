@@ -17,7 +17,7 @@ setup(
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     install_requires=[
-      "Flask", "Flask-SQLAlchemy", "Flask-Login", "Flask-WTF", "Flask-Mail", "Flask-Babel", "Flask-Admin"
+      "Flask", "Flask-SQLAlchemy", "Flask-Login", "Flask-WTF", "Flask-Mail", "Flask-Babel", "Flask-Admin", "docopt"
     ],
     entry_points={"console_scripts": ["talkofeurope-web = talkofeuropeweb:main"],
                   "paste.app_factory": ["main=talkofeuropeweb.main:app_factory"]
