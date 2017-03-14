@@ -1,7 +1,7 @@
 Talk of Europe: Significant words
 =================================
 
-This repository contains the source code of the [project](http://europe.all.my) developed during the
+This repository contains the source code of the [project](http://talkofeurope.ing.ee) developed during the
 [Talk of Europe (ToE) Creative Camp #2](http://www.talkofeurope.eu/creativecamp2/call-for-participation/) (23-27 March 2015, Amsterdam)
 by Konstantin Tretyakov, Ilya Kuzovkin & Alexander Tkachenko.
 
@@ -9,7 +9,7 @@ The aim of the project was to extract words, *significantly overrepresented* in 
 or at particular timepoints. [Fisher exact test](http://en.wikipedia.org/wiki/Fisher%27s_exact_test) was used to measure overrepresentation.
 Results were visualized as wordclouds, served via an interactive web application.
 
-The application is hosted live (as of April 2015) on [http://europe.all.my](http://europe.all.my). This repository contains the source code
+The application is hosted live (as of March 2017) on [http://talkofeurope.ing.ee](http://talkofeurope.ing.ee). This repository contains the source code
 of the scripts used to compute the results and of the visualization web application.
 
 Project structure
